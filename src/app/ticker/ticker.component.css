@@ -1,0 +1,9 @@
+.subnav .nav li {
+  width: 300px;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.subnav .nav li:hover {
+  cursor: pointer;
+}

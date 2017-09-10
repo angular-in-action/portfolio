@@ -1,0 +1,20 @@
+<clr-datagrid>
+  <clr-dg-column [clrDgField]="'symbol'">Symbol</clr-dg-column>
+  <clr-dg-column [clrDgField]="'name'">Name</clr-dg-column>
+  <clr-dg-column [clrDgField]="'price'">Price</clr-dg-column>
+  <clr-dg-column [clrDgField]="'change'">Change</clr-dg-column>
+  <clr-dg-column></clr-dg-column>
+
+  <clr-dg-row *clrDgItems="let stock of stocks">
+    <clr-dg-cell>{{stock.symbol}}</clr-dg-cell>
+    <clr-dg-cell>{{stock.name}}</clr-dg-cell>
+    <clr-dg-cell>{{stock.price | currency:'USD':'symbol':'.2'}}</clr-dg-cell>
+    <clr-dg-cell>{{stock.change | currency:'USD':'symbol':'.2'}}</clr-dg-cell>
+    <clr-dg-cell class="btn-cell"><button class="btn btn-sm" (click)="buy(stock)">Buy</button></clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>
+    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{total}} stocks
+    <clr-dg-pagination #pagination [clrDgPageSize]="10"></clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>

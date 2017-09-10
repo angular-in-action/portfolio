@@ -1,0 +1,32 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Stock</th>
+      <th>Cost</th>
+      <th>Value</th>
+      <th>Change</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let stock of stocks; let i = index">
+      <td>{{stock.symbol}}</td>
+      <td>{{stock.cost | currency:'USD':'symbol':'.2'}}</td>
+      <td>{{stock.price | currency:'USD':'symbol':'.2'}}</td>
+      <td>{{stock.change | currency:'USD':'symbol':'.2'}}</td>
+      <td class="btn-cell"><button class="btn btn-sm" (click)="sell(i)">Sell</button></td>
+    </tr>
+    <tr *ngIf="!stocks.length">
+      <td colspan="5">You don't have any stocks, buy some!</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>Totals</th>
+      <th>{{accountService.cost | currency:'USD':'symbol':'.2'}}</th>
+      <th>{{accountService.value | currency:'USD':'symbol':'.2'}}</th>
+      <th>{{accountService.value - accountService.cost | currency:'USD':'symbol':'.2'}}</th>
+      <th></th>
+    </tr>
+  </tfoot>
+</table>
