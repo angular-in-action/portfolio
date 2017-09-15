@@ -20,6 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.load();
+    this.accountService.init();
     
     this.interval = setInterval(() => {
       if (this.refresh) {
