@@ -1,11 +1,11 @@
 export class ConfigService {
   private _api: string;
 
-  static set(property, value) {
+  public static set(property, value) {
     this['_' + property] = value;
   }
 
-  static get(property) {
+  public static get(property) {
     return this['_' + property];
   }
 }
